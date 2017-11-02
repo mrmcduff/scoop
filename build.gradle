@@ -7,7 +7,7 @@ buildscript {
         classpath 'com.android.tools.build:gradle:3.0.0'
         classpath 'com.squareup.dagger:dagger-compiler:1.2.2'
         classpath 'com.jakewharton:butterknife-compiler:8.8.1'
-
+        classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.8.1'
     }
 }
 

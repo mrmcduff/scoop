@@ -1,11 +1,11 @@
 package com.example.scoop.basics;
 
-import android.support.multidex.MultiDexApplication;
+import android.app.Application;
 import com.facebook.stetho.Stetho;
 import dagger.ObjectGraph;
 import timber.log.Timber;
 
-public class App extends MultiDexApplication {
+public class App extends Application {
 
     private ObjectGraph applicationGraph;
 

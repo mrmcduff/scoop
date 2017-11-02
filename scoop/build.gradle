@@ -1,5 +1,8 @@
 import com.android.builder.core.BuilderConstants;
 apply plugin: 'com.android.library'
+// make sure this line comes *after* you apply the Android plugin
+apply plugin: 'com.getkeepsafe.dexcount'
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -16,6 +19,13 @@ android {
 
     dexOptions {
         preDexLibraries = !rootProject.ext.ci
+    }
+
+    testOptions {
+        unitTests {
+            // Note: without this, all Robolectric tests using BuildConfig will fail.
+            includeAndroidResources = true
+        }
     }
 }
 

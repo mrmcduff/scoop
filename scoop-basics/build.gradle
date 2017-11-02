@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+// make sure this line comes *after* you apply the Android plugin
+apply plugin: 'com.getkeepsafe.dexcount'
 
 android {
     lintOptions {
@@ -22,7 +24,6 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        multiDexEnabled true
         applicationId "com.example.scoop.basics"
         minSdkVersion 21
         targetSdkVersion 27
