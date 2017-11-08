@@ -20,13 +20,13 @@ public final class ViewSubscriptions {
         this.observeOnScheduler = AndroidSchedulers.mainThread();
     }
 
-    public <T> void add(Observable<T> observable, Observer<? super T> observer) {
-        if (Looper.myLooper() != Looper.getMainLooper()) { throw new AssertionError("Must be on main thread"); }
-        this.subscriptions.add(observable.subscribeOn(this.subscribeOnScheduler)
-                .observeOn(this.observeOnScheduler)
-                .unsubscribeOn(this.observeOnScheduler)
-                .subscribe(observer));
-    }
+//    public <T> void add(Observable<T> observable, Observer<? super T> observer) {
+//        if (Looper.myLooper() != Looper.getMainLooper()) { throw new AssertionError("Must be on main thread"); }
+//        this.subscriptions.add(observable.subscribeOn(this.subscribeOnScheduler)
+//                .observeOn(this.observeOnScheduler)
+//                .unsubscribeOn(this.observeOnScheduler)
+//                .subscribe(observer));
+//    }
 
     public <T> void add(Observable<T> observable, Action1<? super T> action) {
         if (Looper.myLooper() != Looper.getMainLooper()) { throw new AssertionError("Must be on main thread"); }

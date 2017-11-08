@@ -1,8 +1,14 @@
 package com.rotoai.scoop_basics_d2;
 
-/**
- * Created by mrmcduff on 11/7/17.
- */
+import dagger.Module;
 
+@Module
 public class AppModule {
+
+    private final App app;
+
+    public AppModule(App app) {
+        this.app = app;
+    }
+
 }
