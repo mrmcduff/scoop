@@ -34,13 +34,13 @@ import io.reactivex.functions.Consumer;
 
 //import rx.functions.Action1;
 
-public abstract class MainUiContainer extends ComponentContainer<MainUiContainer> {
+public abstract class MainUiContainer extends UiContainer {
 
     @Inject
     AppRouter appRouter;
 
-    @Inject
-    ScreenScooper screenScooper;
+//    @Inject
+//    ScreenScooper screenScooper;
 
     private ViewSubscriptions subscriptions = new ViewSubscriptions();
 
@@ -70,11 +70,11 @@ public abstract class MainUiContainer extends ComponentContainer<MainUiContainer
 //        return new DaggerLayoutInflater();
 //    }
 
-    @Override
-    protected ScreenScooper getScreenScooper() {
-        return screenScooper;
-    }
-
+//    @Override
+//    protected ScreenScooper getScreenScooper() {
+//        return screenScooper;
+//    }
+//
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
@@ -104,31 +104,29 @@ public abstract class MainUiContainer extends ComponentContainer<MainUiContainer
         }
     };
 
-    @Override
-    ScoopInjector<MainUiContainer> getScoopInjector() {
-        return null;
-    }
+//    @Override
+//    ScoopInjector<MainUiContainer> getScoopInjector() {
+//        return null;
+//    }
 
     @PerScoop
-    @dagger.Component
-            (dependencies = MainActivityComponent.class,
-            modules = Module.class)
+    @dagger.Component(dependencies = MainActivityComponent.class)
     interface Component {
         void
         inject(MainUiContainer container);
     }
-
-    @dagger.Module
-    class Module {
-
-        @Provides
-        AppRouter provideAppRouter() {
-            return new AppRouter(false);
-        }
-
-        @Provides
-        ScreenScooper provideScreenScooper() {
-            return new ScreenScooper(new ComponentScreenScoopFactory());
-        }
-    }
+//
+//    @dagger.Module
+//    class Module {
+//
+//        @Provides
+//        AppRouter provideAppRouter() {
+//            return new AppRouter(false);
+//        }
+//
+//        @Provides
+//        ScreenScooper provideScreenScooper() {
+//            return new ScreenScooper(new ComponentScreenScoopFactory());
+//        }
+//    }
 }

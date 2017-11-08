@@ -9,7 +9,7 @@ import javax.annotation.Nullable;
 
 public class ScoopComponent {
 
-    static final String SERVICE_NAME = "component_holder";
+    public static final String SERVICE_NAME = "component_holder";
     @Nullable private Object dependencyComponent;
 
     public ScoopComponent(Object dependencyComponent) {

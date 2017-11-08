@@ -24,8 +24,8 @@ public abstract class DialogUiContainer extends UiContainer {
     @Inject
     DialogRouter dialogRouter;
 
-    @Inject
-    ScreenScooper screenScooper;
+//    @Inject
+//    ScreenScooper screenScooper;
 
     private ViewSubscriptions subscriptions = new ViewSubscriptions();
 
@@ -49,11 +49,11 @@ public abstract class DialogUiContainer extends UiContainer {
 //        return new DaggerLayoutInflater();
 //    }
 
-    @Override
-    protected ScreenScooper getScreenScooper() {
-        return screenScooper;
-    }
-
+//    @Override
+//    protected ScreenScooper getScreenScooper() {
+//        return screenScooper;
+//    }
+//
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();

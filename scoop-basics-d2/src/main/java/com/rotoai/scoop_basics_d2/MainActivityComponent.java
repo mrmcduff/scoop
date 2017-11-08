@@ -1,6 +1,10 @@
 package com.rotoai.scoop_basics_d2;
 
 import com.rotoai.scoop_basics_d2.di.PerActivity;
+import com.rotoai.scoop_basics_d2.scoop.AppRouter;
+import com.rotoai.scoop_basics_d2.scoop.DialogRouter;
+import com.rotoai.scoop_basics_d2.scoop.DialogUiContainer;
+import com.rotoai.scoop_basics_d2.scoop.MainUiContainer;
 
 import dagger.Component;
 
@@ -14,6 +18,10 @@ import dagger.Component;
 public interface MainActivityComponent {
 
     void inject(MainActivity activity);
+    void inject(MainUiContainer container);
+    void inject(DialogUiContainer container);
 
+    AppRouter appRouter();
+    DialogRouter dialogRouter();
 
 }

@@ -10,7 +10,6 @@ public class LayoutInflater {
             Screen screen,
             ViewGroup viewGroup) {
 
-        View view = scoop.inflate(screen.getLayout(), viewGroup, false);
-        return view;
+        return scoop.inflate(screen.getLayout(), viewGroup, false);
     }
 }
