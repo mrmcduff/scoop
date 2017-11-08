@@ -5,14 +5,19 @@ import android.util.AttributeSet;
 
 import com.lyft.scoop.LayoutInflater;
 import com.lyft.scoop.RouteChange;
+import com.lyft.scoop.ScreenScoopFactory;
 import com.lyft.scoop.ScreenScooper;
 import com.lyft.scoop.UiContainer;
 import com.lyft.scoop.ViewControllerInflater;
 
 import com.rotoai.scoop_basics_d2.AppComponent;
 import com.rotoai.scoop_basics_d2.AppModule;
+import com.rotoai.scoop_basics_d2.MainActivity;
 import com.rotoai.scoop_basics_d2.MainActivityComponent;
+import com.rotoai.scoop_basics_d2.MainActivityModule;
+import com.rotoai.scoop_basics_d2.di.ComponentScreenScoopFactory;
 import com.rotoai.scoop_basics_d2.di.PerScoop;
+import com.rotoai.scoop_basics_d2.di.ScoopComponent;
 import com.rotoai.scoop_basics_d2.di.ScoopInjector;
 import com.rotoai.scoop_basics_d2.rx.ViewSubscriptions;
 import com.rotoai.scoop_basics_d2.ui.Keyboard;
@@ -24,6 +29,7 @@ import javax.inject.Inject;
 
 import dagger.Component;
 import dagger.Module;
+import dagger.Provides;
 import io.reactivex.functions.Consumer;
 
 //import rx.functions.Action1;
@@ -45,6 +51,12 @@ public abstract class MainUiContainer extends ComponentContainer<MainUiContainer
             return;
         }
 
+        Component component = DaggerMainUiContainer_Component.builder()
+                .mainActivityComponent(
+                        ScoopComponent.fromView(this)
+                                .getDependencyComponent(MainActivityComponent.class))
+                .build();
+        component.inject(this);
 //        DaggerInjector.fromView(this).inject(this);
     }
 
@@ -99,14 +111,24 @@ public abstract class MainUiContainer extends ComponentContainer<MainUiContainer
 
     @PerScoop
     @dagger.Component
-            (dependencies = {MainActivityComponent.class},
+            (dependencies = MainActivityComponent.class,
             modules = Module.class)
     interface Component {
-
+        void
+        inject(MainUiContainer container);
     }
 
     @dagger.Module
     class Module {
 
+        @Provides
+        AppRouter provideAppRouter() {
+            return new AppRouter(false);
+        }
+
+        @Provides
+        ScreenScooper provideScreenScooper() {
+            return new ScreenScooper(new ComponentScreenScoopFactory());
+        }
     }
 }

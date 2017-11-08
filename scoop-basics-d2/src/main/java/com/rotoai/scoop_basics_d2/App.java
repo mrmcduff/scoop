@@ -23,7 +23,10 @@ public class App extends Application {
 
         Timber.d("onCreate");
 
-
+        appComponent = DaggerAppComponent.builder()
+                .appModule(new AppModule(this))
+                .build();
+        appComponent.inject(this);
     }
 
     public AppComponent getAppComponent() {
