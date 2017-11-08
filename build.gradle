@@ -15,8 +15,15 @@ ext {
     minSdkVersion = 15
     compileSdkVersion = 27
     buildToolsVersion = '26.0.2'
-    sourceCompatibility = JavaVersion.VERSION_1_7
     ci = 'true'.equals(System.getenv('CI'))
+    supportLibVersion = "27.0.0"
+    sourceCompatibility = JavaVersion.VERSION_1_8
+
+    daggerVersion = "2.12"
+    javaAnnotationVersion = "1.0"
+    junitVersion = "4.12"
+    mockitoCoreVersion = "2.10.0"
+    robolectricVersion = "3.5.1"
 }
 
 task wrapper(type: Wrapper) {
