@@ -4,9 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ViewGroup;
 
-import com.crumbsandcoffee.scoop_basics_d2.R;
 import com.lyft.scoop.Scoop;
-import com.rotoai.scoop_basics_d2.di.DaggerInjector;
 import com.rotoai.scoop_basics_d2.di.ScoopComponent;
 
 import timber.log.Timber;

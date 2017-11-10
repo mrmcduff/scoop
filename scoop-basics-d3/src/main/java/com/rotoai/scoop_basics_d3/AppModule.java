@@ -8,15 +8,19 @@ import android.content.Context;
 import com.lyft.scoop.ScreenScoopFactory;
 import com.lyft.scoop.ScreenScooper;
 //import com.rotoai.scoop_basics_d2.di.ComponentScreenScoopFactory;
+import com.rotoai.scoop_basics_d3.di.ScoopComponentBuilder;
 import com.rotoai.scoop_basics_d3.scoop.AppRouter;
 import com.rotoai.scoop_basics_d3.scoop.DialogRouter;
 
 import javax.inject.Singleton;
 
+import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
+import dagger.multibindings.ClassKey;
+import dagger.multibindings.IntoMap;
 
-@Module
+@Module(subcomponents = {MainActivityComponent.class})
 public class AppModule {
 
     private final App app;

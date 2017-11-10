@@ -21,6 +21,10 @@ public class ScoopComponent {
         return clazz.cast(this.dependencyComponent);
     }
 
+//    public <T> T get(Class<T> clazz) {
+//        return dependencyComponent.get(clazz);
+//    }
+
     @Nullable
     public static ScoopComponent fromScoop(Scoop scoop) {
         return scoop.findService(SERVICE_NAME);
