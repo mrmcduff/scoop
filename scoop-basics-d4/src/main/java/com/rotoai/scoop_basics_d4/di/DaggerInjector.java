@@ -10,13 +10,10 @@ import java.util.Map;
 
 import javax.inject.Provider;
 
-/**
- * Created by mrmcduff on 11/10/17.
- */
+import timber.log.Timber;
 
 public class DaggerInjector implements HasScoopSubcomponentBuilder {
     public static final String SERVICE_NAME = "dagger";
-//    private ObjectGraph objectGraph;
 
     private Map<Class<? extends Object>, ScoopComponentBuilder> scoopComponentBuilderMap;
 
@@ -25,12 +22,28 @@ public class DaggerInjector implements HasScoopSubcomponentBuilder {
     }
 
     public <T> void inject(T obj) {
+        try {
+            scoopComponentBuilderMap.get(obj.getClass()).build().injectMembers(obj);
+        } catch (Exception ex) {
+            Timber.e(ex, "Failed to inject " + obj.getClass().getSimpleName(), obj);
+        }
 //        objectGraph.inject(obj);
     }
 
-//    public <T> T get(Class<T> clazz) {
-//        return objectGraph.get(clazz);
-//    }
+    public <T> T get(Class<T> clazz) {
+        T t;
+        try {
+            t = clazz.newInstance();
+        } catch (InstantiationException instantationEx) {
+            Timber.e(instantationEx, "Failed to instantiate " + clazz.getSimpleName(), clazz);
+            return null;
+        } catch (IllegalAccessException illegalAccess) {
+            Timber.e(illegalAccess, "Illegal access for constructor " + clazz.getSimpleName(), clazz);
+            return null;
+        }
+        inject(t);
+        return t;
+    }
 
 //    public DaggerInjector extend(Object... modules) {
 //        ObjectGraph objectGraph = this.objectGraph.plus(modules);

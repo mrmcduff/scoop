@@ -7,6 +7,5 @@ import com.rotoai.scoop_basics_d4.ui.navigationsample.controller.BController;
 import com.rotoai.scoop_basics_d4.ui.navigationsample.module.BModule;
 
 @Controller(BController.class)
-@DaggerModule(BModule.class)
 public class BScreen extends Screen {
 }

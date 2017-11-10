@@ -1,6 +1,7 @@
 package com.rotoai.scoop_basics_d4;
 
 
+import com.lyft.scoop.ScreenScooper;
 import com.rotoai.scoop_basics_d4.scoop.AppRouter;
 import com.rotoai.scoop_basics_d4.scoop.DialogRouter;
 
@@ -15,4 +16,5 @@ public interface AppComponent{
 
     AppRouter appRouter();
     DialogRouter dialogRouter();
+    ScreenScooper screenScooper();
 }

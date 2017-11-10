@@ -7,6 +7,7 @@ import android.content.Context;
 
 import com.lyft.scoop.ScreenScoopFactory;
 import com.lyft.scoop.ScreenScooper;
+import com.rotoai.scoop_basics_d4.di.DaggerScreenScoopFactory;
 import com.rotoai.scoop_basics_d4.scoop.AppRouter;
 import com.rotoai.scoop_basics_d4.scoop.DialogRouter;
 
@@ -26,10 +27,10 @@ public class AppModule {
         this.app = app;
     }
 
-//    @Provides
-//    ScreenScoopFactory provideDaggerScreenScooper() {
-//        return new ComponentScreenScoopFactory();
-//    }
+    @Provides
+    ScreenScoopFactory provideDaggerScreenScooper() {
+        return new DaggerScreenScoopFactory();
+    }
 
     @Provides
     ScreenScooper provideScreenFactory(ScreenScoopFactory screenScoopFactory) {

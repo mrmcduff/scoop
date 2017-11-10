@@ -7,6 +7,5 @@ import com.rotoai.scoop_basics_d4.ui.navigationsample.controller.CController;
 import com.rotoai.scoop_basics_d4.ui.navigationsample.module.CModule;
 
 @Controller(CController.class)
-@DaggerModule(CModule.class)
 public class CScreen extends Screen {
 }
