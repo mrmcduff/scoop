@@ -8,13 +8,11 @@ import dagger.Component;
 
 @PerActivity
 @Component(dependencies = AppComponent.class,
-        modules = {MainActivityModule.class})
+        modules = {MainActivityModule.class, ScoopBindingModule.class})
 public interface MainActivityComponent {
 
     void inject(MainActivity activity);
 //    void inject(MainUiContainer container);
 //    void inject(DialogUiContainer container);
 
-    AppRouter appRouter();
-    DialogRouter dialogRouter();
 }

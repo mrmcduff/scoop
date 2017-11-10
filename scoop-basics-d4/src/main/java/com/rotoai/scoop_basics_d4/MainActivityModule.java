@@ -1,5 +1,11 @@
 package com.rotoai.scoop_basics_d4;
 
+import com.rotoai.scoop_basics_d4.di.PerActivity;
+import com.rotoai.scoop_basics_d4.scoop.AppRouter;
+import com.rotoai.scoop_basics_d4.scoop.DialogRouter;
+
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -19,5 +25,17 @@ public class MainActivityModule {
     MainActivity provideActivity() {
         return mainActivity;
     }
+
+//    @PerActivity
+//    @Provides
+//    AppRouter provideAppRouter() {
+//        return new AppRouter(false);
+//    }
+//
+//    @PerActivity
+//    @Provides
+//    DialogRouter provideDialogRouter() {
+//        return new DialogRouter(new AppRouter(true));
+//    }
 
 }
