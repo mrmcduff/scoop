@@ -13,9 +13,9 @@ import dagger.multibindings.ClassKey;
 import dagger.multibindings.IntoMap;
 
 @Singleton
-@Component(modules = {AppModule.class, AppScopeActivityBinder.class})
-public interface AppComponent extends ScoopComponent<App>{
-    void inject(App app);
+@Component(modules = {AppModule.class})
+public interface AppComponent /*extends ScoopComponent<App>*/{
+//    void inject(App app);
 
     AppRouter appRouter();
     DialogRouter dialogRouter();

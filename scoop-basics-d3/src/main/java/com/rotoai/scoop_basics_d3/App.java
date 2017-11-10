@@ -34,10 +34,10 @@ public class App extends Application implements ScoopComponentBuilderHost {
 
         Timber.d("onCreate");
 
-        appComponent = DaggerAppComponent.builder()
-                .appModule(new AppModule(this))
-                .build();
-        appComponent.inject(this);
+//        appComponent = DaggerAppComponent.builder()
+//                .appModule(new AppModule(this))
+//                .build();
+//        appComponent.inject(this);
     }
 
     public AppComponent getAppComponent() {
