@@ -1,17 +1,16 @@
 package com.rotoai.scoop_basics_d4;
 
 import com.rotoai.scoop_basics_d4.di.ScoopComponentBuilder;
+import com.rotoai.scoop_basics_d4.scoop.DialogUiContainer;
+import com.rotoai.scoop_basics_d4.scoop.DialogUiContainerComponent;
 import com.rotoai.scoop_basics_d4.scoop.MainUiContainer;
 import com.rotoai.scoop_basics_d4.scoop.MainUiContainerComponent;
 import com.rotoai.scoop_basics_d4.ui.navigationsample.controller.AController;
 import com.rotoai.scoop_basics_d4.ui.navigationsample.controller.BController;
 import com.rotoai.scoop_basics_d4.ui.navigationsample.controller.CController;
 import com.rotoai.scoop_basics_d4.ui.navigationsample.module.AComponent;
-import com.rotoai.scoop_basics_d4.ui.navigationsample.module.AModule;
 import com.rotoai.scoop_basics_d4.ui.navigationsample.module.BComponent;
-import com.rotoai.scoop_basics_d4.ui.navigationsample.module.BModule;
 import com.rotoai.scoop_basics_d4.ui.navigationsample.module.CComponent;
-import com.rotoai.scoop_basics_d4.ui.navigationsample.module.CModule;
 import com.rotoai.scoop_basics_d4.ui.navigationsample.screen.AScreen;
 import com.rotoai.scoop_basics_d4.ui.navigationsample.screen.AScreenComponent;
 import com.rotoai.scoop_basics_d4.ui.navigationsample.screen.BScreen;
@@ -24,7 +23,6 @@ import dagger.Module;
 import dagger.multibindings.ClassKey;
 import dagger.multibindings.IntoMap;
 
-
 @Module(
         subcomponents = {
                 AComponent.class,
@@ -33,7 +31,8 @@ import dagger.multibindings.IntoMap;
                 AScreenComponent.class,
                 BScreenComponent.class,
                 CScreenComponent.class,
-                MainUiContainerComponent.class
+                MainUiContainerComponent.class,
+                DialogUiContainerComponent.class
         })
 public abstract class ScoopBindingModule {
 
@@ -72,5 +71,11 @@ public abstract class ScoopBindingModule {
     @ClassKey(MainUiContainer.class)
     public abstract ScoopComponentBuilder mainUiContainerComponentBuilder(
             MainUiContainerComponent.Builder impl);
+
+    @Binds
+    @IntoMap
+    @ClassKey(DialogUiContainer.class)
+    public abstract ScoopComponentBuilder dialogUiContainerComponentBuilder(
+            DialogUiContainerComponent.Builder impl);
 
 }
