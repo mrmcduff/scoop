@@ -16,8 +16,6 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 
-//import com.rotoai.scoop_basics_d2.di.ComponentScreenScoopFactory;
-
 @Module
 public class AppModule {
 
