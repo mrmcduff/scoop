@@ -17,11 +17,11 @@ public class AController extends BaseViewController {
 
     private static final String TOAST_TEXT = "Successfully called \"getView()\"";
 
-    private AppRouter appRouter;
+    @Inject AppRouter appRouter;
 
     @Inject
-    public AController(AppRouter appRouter) {
-        this.appRouter = appRouter;
+    public AController(/*AppRouter appRouter*/) {
+//        this.appRouter = appRouter;
     }
 
     @Override

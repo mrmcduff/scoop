@@ -5,6 +5,10 @@ import com.rotoai.scoop_basics_d4.scoop.DialogUiContainer;
 import com.rotoai.scoop_basics_d4.scoop.DialogUiContainerComponent;
 import com.rotoai.scoop_basics_d4.scoop.MainUiContainer;
 import com.rotoai.scoop_basics_d4.scoop.MainUiContainerComponent;
+import com.rotoai.scoop_basics_d4.ui.DemoScreen;
+import com.rotoai.scoop_basics_d4.ui.DemoScreenComponent;
+import com.rotoai.scoop_basics_d4.ui.DemosController;
+import com.rotoai.scoop_basics_d4.ui.DemosControllerComponent;
 import com.rotoai.scoop_basics_d4.ui.navigationsample.controller.AController;
 import com.rotoai.scoop_basics_d4.ui.navigationsample.controller.BController;
 import com.rotoai.scoop_basics_d4.ui.navigationsample.controller.CController;
@@ -32,7 +36,9 @@ import dagger.multibindings.IntoMap;
                 BScreenComponent.class,
                 CScreenComponent.class,
                 MainUiContainerComponent.class,
-                DialogUiContainerComponent.class
+                DialogUiContainerComponent.class,
+                DemoScreenComponent.class,
+                DemosControllerComponent.class
         })
 public abstract class ScoopBindingModule {
 
@@ -78,4 +84,15 @@ public abstract class ScoopBindingModule {
     public abstract ScoopComponentBuilder dialogUiContainerComponentBuilder(
             DialogUiContainerComponent.Builder impl);
 
+    @Binds
+    @IntoMap
+    @ClassKey(DemoScreen.class)
+    public abstract ScoopComponentBuilder demoScreenComponentBuilder(
+            DemoScreenComponent.Builder impl);
+
+    @Binds
+    @IntoMap
+    @ClassKey(DemosController.class)
+    public abstract ScoopComponentBuilder demosControllerComponentBuilder(
+            DemosControllerComponent.Builder impl);
 }

@@ -1,8 +1,26 @@
 package com.rotoai.scoop_basics_d4.ui;
 
-/**
- * Created by mrmcduff on 11/11/17.
- */
+import com.rotoai.scoop_basics_d4.di.PerScoop;
+import com.rotoai.scoop_basics_d4.di.ScoopComponent;
+import com.rotoai.scoop_basics_d4.di.ScoopComponentBuilder;
+import com.rotoai.scoop_basics_d4.di.ScoopModule;
 
-public class DemosControllerComponent {
+import dagger.Module;
+import dagger.Subcomponent;
+
+@PerScoop
+@Subcomponent(modules = DemosControllerComponent.DemosControllerModule.class)
+public interface DemosControllerComponent extends ScoopComponent<DemosController> {
+
+    @Subcomponent.Builder
+    interface Builder extends
+            ScoopComponentBuilder<DemosControllerModule, DemosControllerComponent> {
+    }
+
+    @Module
+    class DemosControllerModule extends ScoopModule<DemosController> {
+        DemosControllerModule(DemosController controller) {
+            super(controller);
+        }
+    }
 }

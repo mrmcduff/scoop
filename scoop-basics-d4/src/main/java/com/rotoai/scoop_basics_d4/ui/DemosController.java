@@ -17,15 +17,14 @@ import butterknife.OnClick;
 
 public class DemosController extends BaseViewController {
 
-    private AppRouter appRouter;
-    private NotificationManager notificationManager;
+    @Inject AppRouter appRouter;
+    @Inject NotificationManager notificationManager;
 
     ViewSubscriptions viewSubscriptions = new ViewSubscriptions();
 
-    @Inject
-    public DemosController(AppRouter appRouter, NotificationManager notificationManager) {
-        this.appRouter = appRouter;
-        this.notificationManager = notificationManager;
+    public DemosController(/*AppRouter appRouter, NotificationManager notificationManager*/) {
+//        this.appRouter = appRouter;
+//        this.notificationManager = notificationManager;
     }
 
     @Override

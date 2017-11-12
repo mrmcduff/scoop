@@ -14,11 +14,11 @@ import butterknife.OnClick;
 
 public class CController extends BaseViewController {
 
-    private AppRouter appRouter;
+    @Inject AppRouter appRouter;
 
     @Inject
-    public CController(AppRouter appRouter) {
-        this.appRouter = appRouter;
+    public CController(/*AppRouter appRouter*/) {
+//        this.appRouter = appRouter;
     }
 
     @Override

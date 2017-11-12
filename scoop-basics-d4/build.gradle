@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
 
     defaultConfig {
-        applicationId "com.crumbsandcoffee.scoop_basics_d2"
+        applicationId "com.rotoai.scoop_basics_d4"
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
