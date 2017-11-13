@@ -9,6 +9,8 @@ import android.content.Intent;
 import com.rotoai.scoop_basics_d4.R;
 import com.rotoai.scoop_basics_d4.rx.ViewSubscriptions;
 import com.rotoai.scoop_basics_d4.scoop.AppRouter;
+import com.rotoai.scoop_basics_d4.ui.layoutsample.screen.LayoutScreen;
+import com.rotoai.scoop_basics_d4.ui.layoutsample.screen.NestedLayoutScreen;
 import com.rotoai.scoop_basics_d4.ui.navigationsample.screen.AScreen;
 
 import javax.inject.Inject;
@@ -58,16 +60,16 @@ public class DemosController extends BaseViewController {
 //    public void goToWizardSample() {
 //        appRouter.goTo(new EnterFirstNameScreen());
 //    }
-//
-//    @OnClick(R.id.layout_sample_button)
-//    public void goToLayoutSample() {
-//        appRouter.goTo(new LayoutScreen("This is a parameter."));
-//    }
-//
-//    @OnClick(R.id.nested_layout_sample_button)
-//    public void goToNestedLayoutSample() {
-//        appRouter.replaceAllWith(new DemoScreen(), new NestedLayoutScreen());
-//    }
+
+    @OnClick(R.id.layout_sample_button)
+    public void goToLayoutSample() {
+        appRouter.goTo(new LayoutScreen("This is a parameter."));
+    }
+
+    @OnClick(R.id.nested_layout_sample_button)
+    public void goToNestedLayoutSample() {
+        appRouter.replaceAllWith(new DemoScreen(), new NestedLayoutScreen());
+    }
 //
 //    @OnClick(R.id.transitions_button)
 //    public void goToTransitions() {

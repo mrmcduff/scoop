@@ -6,6 +6,7 @@ import android.view.View;
 import com.lyft.scoop.Scoop;
 import com.lyft.scoop.Screen;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Provider;
@@ -15,9 +16,9 @@ import timber.log.Timber;
 public class DaggerInjector implements HasScoopSubcomponentBuilder {
     public static final String SERVICE_NAME = "dagger";
 
-    private Map<Class<? extends Object>, ScoopComponentBuilder> scoopComponentBuilderMap;
+    private Map<Class<?>, ScoopComponentBuilder> scoopComponentBuilderMap;
 
-    public DaggerInjector(Map<Class<? extends Object>, ScoopComponentBuilder> map) {
+    public DaggerInjector(Map<Class<?>, ScoopComponentBuilder> map) {
         this.scoopComponentBuilderMap = map;
     }
 
@@ -45,9 +46,10 @@ public class DaggerInjector implements HasScoopSubcomponentBuilder {
         return t;
     }
 
-//    public DaggerInjector extend(Object... modules) {
-//        ObjectGraph objectGraph = this.objectGraph.plus(modules);
-//        return new DaggerInjector(objectGraph);
+//    public DaggerInjector extend(Map<Class<?>, ScoopComponentBuilder> subComponentMap) {
+//        Map<Class<?>, ScoopComponentBuilder> copyMap = new HashMap<>(this.scoopComponentBuilderMap);
+//        copyMap.putAll(subComponentMap);
+//        return new DaggerInjector(copyMap);
 //    }
 
     public static DaggerInjector fromScoop(Scoop scoop) {
@@ -67,13 +69,17 @@ public class DaggerInjector implements HasScoopSubcomponentBuilder {
         return scoopComponentBuilderMap.get(scoopObjectClass);
     }
 
-    //    public static Scoop extend(final Scoop parentScoop, final Object... modules) {
-//        final Screen parentScreen = Screen.fromScoop(parentScoop);
-//        final Scoop.Builder scoopBuilder = new Scoop.Builder(parentScreen.getClass().getSimpleName(), parentScoop)
-//                .service(Screen.SERVICE_NAME, parentScreen);
-//        final DaggerInjector daggerInjector = DaggerInjector.fromScoop(parentScoop).extend(modules);
-//
-//        return scoopBuilder
-//                .service(DaggerInjector.SERVICE_NAME, daggerInjector).build();
-//    }
+    public static Scoop extend(final Scoop parentScoop,
+                               final Map<Class<?>, ScoopComponentBuilder> subComponentMap) {
+        final Screen parentScreen = Screen.fromScoop(parentScoop);
+        final Scoop.Builder scoopBuilder = new Scoop.Builder(parentScreen.getClass().getSimpleName(), parentScoop)
+                .service(Screen.SERVICE_NAME, parentScreen);
+
+//        final DaggerInjector daggerInjector =
+//                DaggerInjector.fromScoop(parentScoop).extend(subComponentMap);
+        final DaggerInjector daggerInjector = DaggerInjector.fromScoop(parentScoop);
+
+        return scoopBuilder
+                .service(DaggerInjector.SERVICE_NAME, daggerInjector).build();
+    }
 }

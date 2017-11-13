@@ -26,16 +26,4 @@ public class MainActivityModule {
         return mainActivity;
     }
 
-//    @PerActivity
-//    @Provides
-//    AppRouter provideAppRouter() {
-//        return new AppRouter(false);
-//    }
-//
-//    @PerActivity
-//    @Provides
-//    DialogRouter provideDialogRouter() {
-//        return new DialogRouter(new AppRouter(true));
-//    }
-
 }

@@ -17,7 +17,7 @@ public interface AScreenComponent extends ScoopComponent<AScreen>{
     }
 
     @Module
-    public class AScreenModule extends ScoopModule<AScreen> {
+    class AScreenModule extends ScoopModule<AScreen> {
         AScreenModule(AScreen screen) {
             super(screen);
         }

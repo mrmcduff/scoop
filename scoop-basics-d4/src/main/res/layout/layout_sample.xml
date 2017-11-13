@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.scoop.basics.ui.layoutsample.layout.LayoutView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.rotoai.scoop_basics_d4.ui.layoutsample.layout.LayoutView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/orange"
@@ -35,4 +35,4 @@
             />
     </LinearLayout>
 
-</com.example.scoop.basics.ui.layoutsample.layout.LayoutView>
+</com.rotoai.scoop_basics_d4.ui.layoutsample.layout.LayoutView>

@@ -56,8 +56,6 @@ public class MainActivity extends AppCompatActivity {
         mainActivityComponent.inject(this);
         getActivityScoop().inflate(R.layout.root, (ViewGroup) findViewById(R.id.root), true);
         ButterKnife.bind(this);
-
-
     }
 
     @Override
